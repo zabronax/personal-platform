@@ -6,5 +6,6 @@ creation_rules:
   # Rules for admin secrets
   - path_regex: secrets/*
     key_groups:
-      - *admin
-      - *larsg
+      - age:
+        - *admin
+        - *larsg
