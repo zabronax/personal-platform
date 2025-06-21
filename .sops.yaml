@@ -1,0 +1,8 @@
+keys:
+  - &admin age1rhgd2a2qy9gh6zeq7a805qfddksejujdg96anzm373dhysxrtqlqdd8a0h
+
+creation_rules:
+  # Rules for admin secrets
+  - path_regex: secrets/*
+    key_groups:
+      - *admin
