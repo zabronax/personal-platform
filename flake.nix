@@ -19,29 +19,30 @@
     {
       devShells = withPkgs (pkgs: {
         default = pkgs.mkShell {
-          packages = [
-            # Frontend UI language
-            pkgs.nodejs_22 # JS and NodeJS
-            pkgs.pnpm # Package manager
+          packages = with pkgs; [
+            # User Interface Toolchain
+            nodejs_22 # JS and NodeJS
+            pnpm # Package manager
 
-            # Backend service language
-            pkgs.dotnetCorePackages.sdk_9_0 # C# and .NET
-            pkgs.redocly # OpenAPI CLI and SPA generator
+            # System Programming Toolchain
+            cargo # Rust
+            rust-analyzer # Rust
 
-            # Platform language
-            pkgs.opentofu # IaC language
-            pkgs.docker # Container
+            # Interface/Contract Toolchain
+            redocly # OpenAPI CLI and SPA generator
+
+            # Platform Toolchain
+            opentofu # IaC language
+            docker # Container
+
+            # Cloud Provider Toolchain
+            hcloud # Hetzner Cloud CLI
 
             # Project Management
-            pkgs.hcloud # Hetzner Cloud CLI
-            pkgs.just # Task runner
-            pkgs.sops # Secrets managements
-            pkgs.age # Encryption tool
+            just # Task runner
+            sops # Secrets managements
+            age # Encryption tool
           ];
-
-          env = {
-            DOTNET_ROOT = builtins.toString pkgs.dotnetCorePackages.sdk_9_0;
-          };
         };
       });
 
