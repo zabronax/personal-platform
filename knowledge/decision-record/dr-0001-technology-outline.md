@@ -3,7 +3,7 @@ tags:
   - type=decision-record
 ---
 
-# Technology Selection
+# DR-0001-Technology Outline
 
 ## Context
 
